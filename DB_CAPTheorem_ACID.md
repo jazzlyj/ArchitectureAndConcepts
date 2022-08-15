@@ -1,7 +1,8 @@
 # CAP theorem
 https://en.wikipedia.org/wiki/CAP_theorem
 
-## Definition: Any distributed data store can provide only two of the following three guarantees:[1][2][3]
+## Definition: 
+Any distributed data store can provide only two of the following three guarantees:[1][2][3]
 
 * Consistency
   * Every read receives the most recent write or an error.
