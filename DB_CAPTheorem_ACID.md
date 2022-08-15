@@ -4,11 +4,11 @@ https://en.wikipedia.org/wiki/CAP_theorem
 Any distributed data store can provide only two of the following three guarantees:[1][2][3]
 
 * Consistency
- * Every read receives the most recent write or an error.
+  * Every read receives the most recent write or an error.
 * Availability
- * Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+  * Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
 * Partition tolerance
- * The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+  * The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
 
 # When a network partition failure happens, it must be decided whether to:
 * cancel the operation and thus decrease the availability but ensure consistency or to
