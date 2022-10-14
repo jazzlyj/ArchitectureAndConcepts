@@ -3,6 +3,7 @@ A description or template that can be repeatedly applied to a commonly recurring
 
 
 ## Creational design patterns
+These design patterns are all about class instantiation. This pattern can be further divided into class-creation patterns and object-creational patterns. While class-creation patterns use inheritance effectively in the instantiation process, object-creation patterns use delegation effectively to get the job done.
 </br>
 
 * Abstract Factory - 
