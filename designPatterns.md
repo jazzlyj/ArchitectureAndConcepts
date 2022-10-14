@@ -1,0 +1,53 @@
+# Design Pattern
+A description or template that can be repeatedly applied to a commonly recurring problem in software design
+
+
+## Creational design patterns
+</br>
+
+* Abstract Factory - 
+Creates an instance of several families of classes
+* Builder - 
+Separates object construction from its representation
+* Factory Method - 
+Creates an instance of several derived classes
+* Object Pool - 
+Avoid expensive acquisition and release of resources by recycling objects that are no longer in use
+* Prototype - 
+A fully initialized instance to be copied or cloned
+* Singleton - 
+A class of which only a single instance can exist
+
+
+
+## Structural design patterns: 
+These design patterns are all about Class and Object composition. Structural class-creation patterns use inheritance to compose interfaces. Structural object-patterns define ways to compose objects to obtain new functionality.
+</br>
+
+* Adapter -
+Match interfaces of different classes
+* Bridge -
+Separates an object’s interface from its implementation
+* Composite -
+A tree structure of simple and composite objects
+* Decorator -
+Add responsibilities to objects dynamically
+* Facade -
+A single class that represents an entire subsystem
+* Flyweight -
+A fine-grained instance used for efficient sharing
+* Private Class Data -
+Restricts accessor/mutator access
+* Proxy -
+An object representing another object
+
+
+
+
+
+
+
+# Reference:
+https://sourcemaking.com/design_patterns
+
+https://medium.com/@nutanbhogendrasharma/factory-design-pattern-in-java-and-python-part-1-7adddd7a58d9
