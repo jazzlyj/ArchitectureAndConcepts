@@ -103,8 +103,7 @@ The data vault model is adaptable (relatively less manual operations need to be 
 
 ### Normalization
 * Normalization is the process of reducing data redundancy by breaking down larger tables into smaller ones. 
-* normalization allows for more storage space and, as a result, increased performance of the database system. 
-eliminating duplicate rows, the data is clean and organized. 
+* normalization allows for more storage space and, as a result, increased performance of the database system. eliminating duplicate rows, the data is clean and organized. 
 * Shifts burden onto analytics. 
 * Normalized databases require more JOINs between tables, which affects query performance. 
 * Pulling data from a normalized database, the report page might take a while longer to load. 
