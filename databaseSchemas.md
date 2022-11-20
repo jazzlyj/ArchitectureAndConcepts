@@ -4,18 +4,19 @@ content from
 https://towardsdatascience.com/designing-your-database-schema-best-practices-31843dc78a8d
 by Chloe Lubin
 
-# Architecture decision factors:
+## Architecture decision factors:
 * Decide whether using a star or snowflake schema is right for you, 
 * how normalization v. denormalization affect your analytics, and what the future of database schema design looks like
 
-Good database schema design is essential for any company leveraging relational database management systems. 
-What is a database schema? A schema is a snapshot of all the objects contained in a database (tables, views, columns, keys, etc.) and their relationships. 
+## Schema 
+Is a snapshot of all the objects contained in a database (tables, views, columns, keys, etc.) and their relationships. 
+
 A schema is represented using an Entity-Relationship Diagram (ERD), a flowchart that pictures how entities are related in a database system, where rectangles represent entities (e.g. tables), ovals, attributes (e.g. columns), and diamonds, relationships (e.g. one-to-one, one-to-many, many-to-one, and many-to-many). 
 
-# Schema Models
+## Schema Models
 The most common schema models in a relational database system are the star schema and the snowflake one.
 
-## Star Schema ⭐️
+## Star Schema
 * The star schema is the simplest schema model and the most commonly used.
 * Central fact table that can be joined on by surrounding dimension tables. 
 The dimension tables of a star schema model are denormalized, requiring fewer JOINs, 
@@ -38,7 +39,7 @@ FROM fact_pandemic AS fact
 WHERE d.year = 2020
 ```
 
-## Snowflake (“3NF“) Schema ❄️
+## Snowflake (“3NF“) Schema
 * The snowflake schema (or “3rd Normal Form” schema)  
 * Like a star schema except for the fact that the dimension tables are completely normalized. 
     * Normalization helps for a number of reasons: it helps reduce duplicates in the data, lower the amount of storage space used and avoid performing data deletion or update commands in multiple places. 
@@ -70,7 +71,7 @@ FROM fact_pandemic AS fact
 WHERE y.year = 2020
 ```
 
-## Galaxy Schema (Fact Constellation Schema) 🌌
+## Galaxy Schema (Fact Constellation Schema)
 The galaxy schema (also known as fact constellation schema) is a combination of the star and snowflake schema models. 
 * completely normalized 
 * more design complexity since there can be more than one fact table and there can be multiple dependencies that exist between dimension and fact tables. 
@@ -78,19 +79,25 @@ The galaxy schema (also known as fact constellation schema) is a combination of 
 ### CONS: complex and may affect the performance of your query.
 
 
-## Data Vault 2.0 🔐
-Data Vault 2.0 evolved out of data vault, created in the 2000’s by Dan Linstedt. According to its designer, data vault is a “hybrid approach encompassing the best of breed between 3rd normal form (3NF) and star schema” by providing an agile framework to scale and adapt an EDW (see Super Charge Your Data Warehouse by Dan Linstedt). The model is built around 3 things: hubs, satellites, and links.
+## Data Vault 2.0
+Data Vault 2.0 evolved out of data vault, created in the 2000’s by Dan Linstedt. 
 
+Data vault is a “hybrid approach encompassing the best of breed between 3rd normal form (3NF) and star schema” by providing an agile framework to scale and adapt an EDW (see Super Charge Your Data Warehouse by Dan Linstedt). 
 
-* Hubs are tables that store primary keys that uniquely identify a business element. Other pieces of information include a hash key (useful for running the model on a Hadoop system), the data source and the load time.
+The model is built around 3 things: hubs, satellites, and links.
 
-* Satellites are tables that contain the attributes of a business object. They store foreign keys that can be referenced in a hub or link table, as well as the following pieces of info:
+### Hubs 
+Tables that store primary keys that uniquely identify a business element. Other pieces of information include a hash key (useful for running the model on a Hadoop system), the data source and the load time.
 
-a parent hash key (foreign key of the hash key in the hub)
-load start and end dates (in satellites, historical changes are captured)
-the data source
-any relevant dimensions of the business object
-* Links set the relationship between 2 hubs via the business keys defined in the hubs. A link table contains:
+### Satellites 
+Tables that contain the attributes of a business object. They store foreign keys that can be referenced in a hub or link table, as well as the following pieces of info:
+* a parent hash key (foreign key of the hash key in the hub)
+* load start and end dates (in satellites, historical changes are captured)
+* the data source
+* any relevant dimensions of the business object
+
+### Links 
+Set the relationship between 2 hubs via the business keys defined in the hubs. A link table contains:
 
 a hash key, which acts like a primary key and uniquely identifies the relationship between 2 hubs in hash format
 foreign hash keys referencing the primary hash keys in the hubs
